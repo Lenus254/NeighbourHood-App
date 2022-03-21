@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config,Csv
 
 import cloudinary
 import cloudinary.uploader
@@ -143,6 +144,13 @@ EMAIL_USE_TLS=os.environ.get('EMAIL_USE_TLS')
 
 
 LOGIN_REDIRECT_URL='/'
+
+cloudinary.config( 
+  cloud_name = config("CLOUD_NAME"),
+  api_key = config("API_KEY"), 
+  api_secret =config("SECRET"),
+  secure = True
+)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
