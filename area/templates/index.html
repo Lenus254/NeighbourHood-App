@@ -4,7 +4,7 @@
 {% block content%}
 
 <div class="container">
-  <a href="{% url 'new-hood' %}" class="btn btn-sm btn-info mb-2"> New Hood</a>
+  <a href="{% url 'new-hood' %}" class="btn btn-sm btn-info mb-2"> New Area</a>
 <div class="row">
   {% for hood in hoods %}
   <div class="col-md-4">
@@ -14,9 +14,9 @@
               <h5 class="card-title">{{ hood.name }}  ({{hood.location}}) <span class="ml-4">{{hood.members.count}} member{{hood.members.count|pluralize}}</span></h5>
               <p class="card-text">{{hood.description}}</p>
               {% if request.user.profile.location == hood %}
-              <a href="{% url 'leave-hood' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a>
+              <a href="{% url 'exit-area' hood.id %}" class="btn btn-outline-danger btn-sm">Leave Hood</a>
               {% elif not request.user.profile.location %}
-              <a href="{% url 'join-hood' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
+              <a href="{% url 'join-area' hood.id %}" class="btn btn-primary btn-sm">Join Hood</a>
               {% endif %}
           </div>
       </div>
