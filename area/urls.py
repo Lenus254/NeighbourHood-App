@@ -6,8 +6,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    # path('profile/<username>', views.profile, name='profile'),
-    # path('profile/<username>/edit/', views.edit_profile, name='edit-profile'),
+    path('profile/<username>', views.profile, name='profile'),
+    path('profile/<username>/edit/', views.edit_profile, name='edit-profile'),
     path('new-hood/', views.new_area, name='new-hood'),
     # path('view-hood/<hood_id>', views.view_hood, name='view-hood'),
     # path('view-hood/<hood_id>/new-business', views.add_business, name='add-biz'),
