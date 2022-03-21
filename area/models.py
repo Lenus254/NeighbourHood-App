@@ -48,3 +48,44 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.user)
+    
+    
+class Business(models.Model):
+    bs_name= models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    bs_logo = CloudinaryField('image')
+    owner = models.ForeignKey(Profile,on_delete=models.CASCADE, related_name='business')
+    hood = models.ForeignKey(Area,on_delete=models.CASCADE, related_name='business')
+    bs_email = models.EmailField(max_length=50)
+    # facebook =URLOrRelativeURLField(max_length=100, default='https://web.facebook.com/')
+    # instagram = URLOrRelativeURLField(max_length=100, default='https://www.instagram.com/' )
+    # twitter = URLOrRelativeURLField(max_length=100, default='https://twitter.com/')
+
+    def __str__(self):
+        return self.bs_name
+
+    def create_business(self):
+        self.save()
+
+    def delete_business(self):
+        self.delete()
+
+    @classmethod
+    def search_business(cls, name):
+        return cls.objects.filter(name__icontains=name).all()
+    
+class Posts(models.Model):
+    title = models.CharField(max_length=120, null=True)
+    details = models.TextField()
+    post_date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
+    hood = models.ForeignKey(Area, on_delete=models.CASCADE, related_name='hood_post')
+
+    def __str__(self):
+        return f'{self.title} post'
+
+    def new_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()
