@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_registration',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -121,6 +124,19 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+
+#email
+CRISPY_TEMPLATE_PACK = 'bootstrap4',
+ACCOUNT_ACTIVATION_DAYS=int(os.environ.get('ACCOUNT_ACTIVATION_DAYS',7))
+DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_PASSWORD=os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_HOST_USER=os.environ.get('EMAIL_HOST_USER')
+EMAIL_PORT=os.environ.get('EMAIL_PORT')
+EMAIL_USE_TLS=os.environ.get('EMAIL_USE_TLS')
+
+LOGIN_REDIRECT_URL='/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
