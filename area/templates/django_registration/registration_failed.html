@@ -1,0 +1,14 @@
+{%extends "base.html"%}
+
+{% block content %}
+{% if activation_error.code== "already_activated" %}
+<div class="mt-10">
+    <p class="text-danger">{{activation_error.message}}</p>
+    <p>proceed to <a href="{% url 'login' %}" class="text-primary">Login</a></p>
+    {% else %}
+    <p class="text-danger">{{activation_error.message}}</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

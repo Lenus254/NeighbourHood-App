@@ -1,0 +1,10 @@
+Hello {{user.username}},
+
+Kindly use the below link to activate your awards account.
+
+{{site.name}}/accounts/activate/{{activation_key}}
+
+The activation key will expire in {{expiration_days}}.Thank you
+
+Regards,
+Accounts
