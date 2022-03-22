@@ -19,8 +19,8 @@ class Area(models.Model):
     def create_hood(self):
         self.save()
 
-    def update_hood(self):
-      self.save()
+    def update_hood(self,hood):
+        self.save()
 
     def delete_hood(self):
         self.delete()
