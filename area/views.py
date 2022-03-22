@@ -76,7 +76,7 @@ def edit_profile(request, username):
         form = EditProfileForm(instance = request.user.profile)
     return render(request, 'edit_profile.html', {'form': form})
 
-def view_hood(request, hood_id):
+def view_area(request, hood_id):
     area= Area.objects.get(id =hood_id)
     business = Business.objects.filter(hood = area)
     posts = Posts.objects.filter(hood = area)

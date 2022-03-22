@@ -7,8 +7,8 @@ from cloudinary.models import CloudinaryField
 class Area(models.Model):
     name = models.CharField(max_length=50)
     location = models.CharField(max_length=60)
-    admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='admin')
-    hoodimage = CloudinaryField()
+    admin = models.ForeignKey("Profile", on_delete=models.CASCADE, related_name='admin', null=True)
+    hoodimage = CloudinaryField(null=True)
     description = models.CharField(max_length=60)
     police_number = models.IntegerField(null=True, blank=True)
     emergency_no = models.IntegerField(null=True, blank=True)
