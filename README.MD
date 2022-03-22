@@ -24,6 +24,10 @@ An application where users can:
 python3 -m venv --without-pip virtual
 ```
 
+##  Live Link 
+Follow the link on: [here](link here)
+
+
 ### Prerequisites
 
 *get all requirements in the requirements.txt file
@@ -59,6 +63,11 @@ And view the site at the port provided which is most likely 127.0.0.1:8000
 ## Author
 
 * **Linus Cheruiyot**  - [project_awards](https://github.com/Lenus254/project_awards)
+
+## Known Bugs  
+* There are no known bugs currently but pull requests are allowed incase you see a bug
+## Contact Information   
+If you have any question or contributions, please email me at [lenuslangat@gmail.com] 
 
 
 ## License
