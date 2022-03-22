@@ -1,3 +1,4 @@
+from turtle import title
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
@@ -43,6 +44,10 @@ class Profile(models.Model):
     def __str__(self):
         return str(self.user)
     
+    def save_profile(self):
+        self.save()
+        
+    
     
 class Business(models.Model):
     bs_name= models.CharField(max_length=100)
@@ -69,8 +74,8 @@ class Posts(models.Model):
     title = models.CharField(max_length=120, null=True)
     details = models.TextField()
     post_date = models.DateTimeField(auto_now_add=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner')
-    hood = models.ForeignKey(Area, on_delete=models.CASCADE, related_name='hood_post')
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name='post_owner', null=True)
+    hood = models.ForeignKey(Area, on_delete=models.CASCADE, related_name='hood_post', null=True)
 
     def __str__(self):
         return f'{self.title} post'
