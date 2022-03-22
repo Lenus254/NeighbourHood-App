@@ -33,16 +33,10 @@ class Area(models.Model):
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True, related_name='profile')
     bio = models.CharField(blank=True, max_length=120)
-    profile_pic = CloudinaryField(
-        default="https://res.cloudinary.com/playboard/image/upload/v1626529829/vjytnast5wblft8xvy9p.jpg",
-    )
+    profile_pic = CloudinaryField('image' )
     full_name = models.CharField(blank=True, max_length=120)
     profession = models.CharField(blank=True, max_length=120)
     email_address = models.EmailField(null=True, blank=True)
-    # website_url= URLOrRelativeURLField(null=True,blank=True)
-    # facebook =URLOrRelativeURLField(null=True,blank=True)
-    # instagram = URLOrRelativeURLField(null=True,blank=True)
-    # twitter = URLOrRelativeURLField(null=True,blank=True)
     mobile_number = models.IntegerField(null=True, blank=True)
     location = models.ForeignKey(Area, on_delete=models.SET_NULL, null=True, related_name='members', blank=True)
 
@@ -57,10 +51,7 @@ class Business(models.Model):
     owner = models.ForeignKey(Profile,on_delete=models.CASCADE, related_name='business')
     hood = models.ForeignKey(Area,on_delete=models.CASCADE, related_name='business')
     bs_email = models.EmailField(max_length=50)
-    # facebook =URLOrRelativeURLField(max_length=100, default='https://web.facebook.com/')
-    # instagram = URLOrRelativeURLField(max_length=100, default='https://www.instagram.com/' )
-    # twitter = URLOrRelativeURLField(max_length=100, default='https://twitter.com/')
-
+    
     def __str__(self):
         return self.bs_name
 

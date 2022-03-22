@@ -16,7 +16,7 @@ class AreaForm(forms.ModelForm):
 class BusinessForm(forms.ModelForm):
   class Meta:
     model = Business
-    exclude = ('owner', 'hood')
+    exclude = ('owner', 'hood', 'bs_logo')
 
 
 
