@@ -37,7 +37,7 @@
   <div class="container bg-white hoode">
     <div class="row">
       <div class="col-md-12">
-        <a href="{% url 'add-biz' hood.id %}" class="btn btn-sm btn-outline-info mb-4 mr-4">New Business</a>
+        <a href="{% url 'new-business' hood.id %}" class="btn btn-sm btn-outline-info mb-4 mr-4">Post Business</a>
         <a class="btn btn-sm btn-outline-info mb-4" href="{% url 'post' hood.id %}">New Post</a>
         {% if hood.admin == user.profile %}
         <a href="{% url 'hood_members' hood.id %}" class="btn btn-sm btn-outline-info mb-4 ml-4">All Members</a>
